@@ -5,6 +5,7 @@ def main():
     left = []
     right = []
 
+    # Split the lines into the left and right lists
     for index in range(0, len(lines)):
         print(f"Line: {index + 1}")
         split_line = lines[index].strip().split("   ")
@@ -14,6 +15,7 @@ def main():
     print(f"Left: {left}")
     print(f"Right: {right}")
 
+    # Create a dictionary for the right list as we'll be using it to calculate the similarity score
     right_dict = {}
     for index in range(0, len(right)):
         if right[index] in right_dict:
@@ -25,6 +27,7 @@ def main():
     
     simularity_score = 0
 
+    # Check how often the left number occurs in the right list and multiply it by the number of times it occurs, add this to the simularity score
     for index in range(0, len(left)):
         if left[index] in right_dict:
             score = left[index] * right_dict[left[index]]
