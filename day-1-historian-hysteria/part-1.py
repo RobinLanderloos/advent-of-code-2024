@@ -1,5 +1,5 @@
 def main():
-    file_object = open(r"./part-1-input.txt", "r")
+    file_object = open(r"./input.txt", "r")
     lines = file_object.readlines()
 
     left = []
