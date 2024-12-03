@@ -12,18 +12,12 @@ def main():
 
     total = 0
 
-    print(lines)
-
     for line in lines:
         matches = re.findall(mul_pattern, line)
         print(matches)
         for match in matches:
-            operator = re.findall(operator_pattern, match)[0]
-            print(operator)
             left = re.findall(left_digit_pattern, match)[0]
-            print(left)
             right = re.findall(right_digit_pattern, match)[0]
-            print(right)
             total += int(left) * int(right)
 
     print(f"Total: {total}")
