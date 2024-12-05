@@ -7,8 +7,7 @@
 
     valid_pages, total = get_valid_pages(lines, split_index, rules)
 
-    print(f"Pages ({len(valid_pages)}), total ({total})")
-    print(valid_pages)
+    print(f"Valid Pages ({len(valid_pages)}), total ({total})")
 
 
 def get_valid_pages(lines: list[str], split_index: int, rules: dict) -> tuple[list[str], int]:
