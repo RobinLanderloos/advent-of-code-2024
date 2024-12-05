@@ -20,7 +20,7 @@ def get_valid_pages(lines: list[str], split_index: int, rules: dict) -> tuple[li
     start_index = split_index + 1
 
     for line_index in range(start_index, len(lines)):
-        print(f"Checking page {lines[line_index]}")
+        print(f"Checking page {lines[line_index].strip()}")
         # We won't perform rule checks on the first number of the page
         page_valid, middle_value = check_page_validity(lines[line_index], rules)
         if page_valid:
