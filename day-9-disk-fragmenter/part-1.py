@@ -3,7 +3,7 @@
     output, empty_spaces, file_blocks = convert_input(line)
     print(output)
 
-    defragment(file_blocks, output)
+    print(defragment(file_blocks, output))
 
 
 
@@ -11,9 +11,34 @@ def defragment(file_blocks: dict[str, int], input_str: str) -> str:
     output = ""
     remainder = 0
 
+    str_ptr = 0
+    encountered_keys = set()
     for file_block_key in reversed(file_blocks):
-        print(file_block_key)
-        print(file_blocks[file_block_key])
+        print(f"Checking key {file_block_key}, encountered keys: {encountered_keys}")
+        if file_block_key in encountered_keys:
+            print(f"Duplicate key {file_block_key} found")
+            continue
+
+        if file_block_key == 0:
+            continue
+
+        remaining_file_blocks = file_blocks[file_block_key]
+
+        while remaining_file_blocks > 0:
+
+            if str_ptr >= len(input_str):
+                return output
+
+            if input_str[str_ptr] == ".":
+                output += str(file_block_key)
+                remaining_file_blocks -= 1
+                remainder += 1
+            else:
+                print(f"Adding key {file_block_key}")
+                encountered_keys.add(file_block_key)
+                output += input_str[str_ptr]
+            str_ptr += 1
+
 
     return output
 
