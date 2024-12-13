@@ -47,7 +47,6 @@ def scan_positions(start_x: int, start_y: int, search_value: int, grid: Grid) ->
 
     points = 0
 
-    print(f"Char at {start_x}, {start_y} is {grid.get_char_at(start_x, start_y)}, searching for {search_value}")
     if grid.get_char_at(start_x, start_y) == "9" and search_value == "10":
         print(f"Found 9 at {start_x}, {start_y}")
         points += 1
